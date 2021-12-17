@@ -18,9 +18,7 @@ func main() {
 	}
 	prev := sum(rollingWindow)
 	for scanner.Scan() {
-		rollingWindow[0] = rollingWindow[1]
-		rollingWindow[1] = rollingWindow[2]
-		rollingWindow[2] = atoi(scanner.Text())
+		shift(&rollingWindow, atoi(scanner.Text()))
 		curr := sum(rollingWindow)
 		if prev < curr {
 			count++
@@ -56,4 +54,10 @@ func sum(array [3]int) int {
 		result += value
 	}
 	return result
+}
+
+func shift(array *[3]int, value int) {
+	array[0] = array[1]
+	array[1] = array[2]
+	array[2] = value
 }

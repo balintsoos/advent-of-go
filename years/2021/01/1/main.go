@@ -11,7 +11,7 @@ import (
 
 func main() {
 	_, filename, _, _ := runtime.Caller(0)
-	file, err := os.Open(path.Join(path.Dir(filename), "input.txt"))
+	file, err := os.Open(path.Join(path.Dir(filename), "../input.txt"))
 
 	if err != nil {
 		log.Fatal("Failed to open input file.")
